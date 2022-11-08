@@ -17,6 +17,14 @@ namespace ImageTextureLab
         public Form1()
         {
             InitializeComponent();
+            int[,] a = new int[4, 4]{{ 0, 0,1,1},
+                                     { 0,0,1,1},
+                                     { 0,2,2,2},
+                                     { 2,2,3,3}};
+            int[,] resGh = new GLCM().GhorizontalGLCM(a);
+            int[,] resVe = new GLCM().VerticalGLCM(a);
+            int[,] resD = new GLCM().DiagonalGLCM(a);
+            int c = 0;
         }
 
         private void Form1_Load(object sender, EventArgs e)

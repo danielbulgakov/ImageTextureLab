@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ImageTextureLab.OwnSolution;
+using ImageTextureLab.OwnSolution.GrowingRegion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,7 @@ namespace ImageTextureLab
     public partial class Form1 : Form
     {
         Bitmap image;
+        Bitmap prevImage;
 
         public Form1()
         {
@@ -42,6 +45,28 @@ namespace ImageTextureLab
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private bool ImageIsNull()
+        {
+            if (pictureBox1.Image == null) MessageBox.Show("Загрузите фото.", "Ошибка!");
+            return pictureBox1.Image == null;
+        }
+
+        private void разрастаниеРегионовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ImageIsNull()) return;
+            prevImage = new Bitmap(pictureBox1.Image);
+            Cursor.Current = Cursors.WaitCursor;
+            var g = new GrowingRegion();
+            this.pictureBox1.Image = g.Compute((Bitmap)pictureBox1.Image);
+            Cursor.Current = Cursors.Default;
+        }
+
+        private void отменаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ImageIsNull()) return;
+            this.pictureBox1.Image = prevImage;
         }
     }
 }

@@ -53,6 +53,8 @@
       <DependentUpon>MainFrame.cs</DependentUpon>
     </Compile>
     <Compile Include="OwnSolution\GrowingRegion.cs" />
+    <Compile Include="OwnSolution\Region.cs" />
+    <Compile Include="OwnSolution\RegionParams.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\ImageTools.cs" />

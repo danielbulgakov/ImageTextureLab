@@ -21,8 +21,8 @@ namespace ImageTextureLab.OwnSolution
 
         public void AddNewRegion(int x, int y)
         {
-            var id = ++_regionCounter;
-            var reg = new Region(id);
+            int id = ++_regionCounter;
+            Region reg = new Region(id);
 
             _imageMask[x, y] = id;
             reg.AddPixel(x, y);
@@ -37,13 +37,13 @@ namespace ImageTextureLab.OwnSolution
 
         public Region GetRegion(int x, int y)
         {
-            var id = _imageMask[x, y];
+            int id = _imageMask[x, y];
             return _regionList.Find(r => r.Id == id);
         }
 
         public int GetIntensity(int x, int y)
         {
-            var id = _imageMask[x, y];
+            int id = _imageMask[x, y];
             var reg = _regionList.Find(r => r.Id == id);
             
 
@@ -78,10 +78,10 @@ namespace ImageTextureLab.OwnSolution
         {
             Console.WriteLine();
             Console.Write(@"{{{{");
-            for (var i = 0; i < _sourceImage.Height; i++)
+            for (int i = 0; i < _sourceImage.Height; i++)
             {
 
-                for (var j = 0; j < _sourceImage.Width; j++)
+                for (int j = 0; j < _sourceImage.Width; j++)
                 {
                     Console.Write(_imageMask[j, i] + @", ");
                 }
@@ -111,16 +111,16 @@ namespace ImageTextureLab.OwnSolution
 
         public Bitmap Compute(Bitmap image, int threshold = 8)
         {
-            var resImage = new Bitmap(image.Width, image.Height);
-            var regionMap = ComputeMask(image, threshold);
+            Bitmap resImage = new Bitmap(image.Width, image.Height);
+            RegionMap regionMap = ComputeMask(image, threshold);
             return ComputeImage(resImage, regionMap);
         }
 
         private Bitmap ComputeImage(Bitmap image, RegionMap map)
         {
             map.Print();
-            for (var y = 0; y < image.Height; y++)
-                for (var x = 0; x < image.Width; x++)
+            for (int y = 0; y < image.Height; y++)
+                for (int x = 0; x < image.Width; x++)
                 {
                     image.SetPixel(x, y, Color.FromArgb(map.GetIntensity(x, y),
                                    map.GetIntensity(x, y), map.GetIntensity(x, y)));
@@ -133,10 +133,10 @@ namespace ImageTextureLab.OwnSolution
 
         private RegionMap ComputeMask(Bitmap image, int thr)
         {
-            var map = new RegionMap(image);
+            RegionMap map = new RegionMap(image);
 
-            for (var y = 0; y < image.Height; y++)
-                for (var x = 0; x < image.Width; x++)
+            for (int y = 0; y < image.Height; y++)
+                for (int x = 0; x < image.Width; x++)
                 {
                     int pixI = Tools.ImageTools.GetBrightness(image.GetPixel(x, y));
                     int difX = 0, difY = 0, difXy = 0;

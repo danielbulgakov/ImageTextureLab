@@ -15,17 +15,33 @@ namespace ImageTextureLab.OwnSolution
         }
 
         // not tested yet.
+
+        // является медленной версией т.к. постоянное обращается для поиска в лист
+        // для ускоренитя можно создать матрицу по точкам региона.
         public static int RegionPerimeter(Region r)
         {
-            throw new NotImplementedException();
-            var list = r.PixelList;
-            list.Sort();
+            int perimeter = 0;
 
-            bool isBorder = false;
-            int borderCount = 0;
-            
+            for (int i = 0; i < r.PixelList.Count; i++)
+            {
+                perimeter += (4 - pixelneighbourCount(r, i));
+            }
 
-            return -1;
+            return perimeter;
+        }
+        private static int pixelneighbourCount(Region r, int regListInd)
+        {
+            int count = 0;
+
+            var watchingPixel = r.PixelList[regListInd];
+
+            if (r.PixelList.Find(p => p.Item1 == watchingPixel.Item1 - 1) != null) count++;
+            if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 - 1) != null) count++;
+
+            if (r.PixelList.Find(p => p.Item1 == watchingPixel.Item1 + 1) != null) count++;
+            if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 + 1) != null) count++;
+
+            return count;
         }
 
         public static int RegionDiscreteMomentum(Region r, int x, int y, Bitmap image)

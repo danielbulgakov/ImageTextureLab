@@ -15,7 +15,6 @@ namespace ImageTextureLab.OwnSolution
         }
 
         // not tested yet.
-
         // является медленной версией т.к. постоянное обращается для поиска в лист
         // для ускоренитя можно создать матрицу по точкам региона.
         public static int RegionPerimeter(Region r)
@@ -36,10 +35,9 @@ namespace ImageTextureLab.OwnSolution
             var watchingPixel = r.PixelList[regListInd];
 
             if (r.PixelList.Find(p => p.Item1 == watchingPixel.Item1 - 1) != null) count++;
-            if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 - 1) != null) count++;
-
-            if (r.PixelList.Find(p => p.Item1 == watchingPixel.Item1 + 1) != null) count++;
-            if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 + 1) != null) count++;
+            else if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 - 1) != null) count++;
+            else if (r.PixelList.Find(p => p.Item1 == watchingPixel.Item1 + 1) != null) count++;
+            else if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 + 1) != null) count++;
 
             return count;
         }

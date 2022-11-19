@@ -9,12 +9,12 @@ namespace ImageTextureLab
 {
     internal class Tools
     {
-        public int Clamp(int a, int l, int r)
+        static public int Clamp(int a, int l, int r)
         {
             if (a > l && a < r) return a;
             return a > l ? r : l;
         }
-        public Bitmap Gray(Bitmap Image)
+        static public Bitmap Gray(Bitmap Image)
         {
             int max = 0, min = 255;
             Bitmap imageC = new Bitmap(Image.Width, Image.Height);
@@ -38,6 +38,27 @@ namespace ImageTextureLab
                 }
 
             return imageC;
+        }
+
+        static public int[,] IntensivityMatrix(Bitmap Image)
+        {
+            int[,] Intensivities = new int[Image.Width, Image.Height];
+            for (int i = 0; i < Image.Width; i++)
+                for (int j = 0; j < Image.Height; j++)
+                    Intensivities[i, j] = Image.GetPixel(i, j).R;
+
+            return Intensivities;
+        }
+
+        static public int[,] ZerosMatrix(int a)
+        {
+            if (a < 1) return null;
+            int[,] Zeros = new int[a, a];
+            for (int i = 0; i < 255; i++)
+                for (int j = 0; j < 255; j++)
+                    Zeros[i, j] = 0;
+            return Zeros;
+
         }
 
     }

@@ -23,7 +23,7 @@ namespace ImageTextureLab.OwnSolution
 
             for (int i = 0; i < r.PixelList.Count; i++)
             {
-                perimeter += (4 - pixelneighbourCount(r, i));
+                perimeter += pixelneighbourCount(r, i) < 4 ? 1 : 0 ;
             }
 
             return perimeter;
@@ -34,10 +34,10 @@ namespace ImageTextureLab.OwnSolution
 
             var watchingPixel = r.PixelList[regListInd];
 
-            if (r.PixelList.Find(p => p.Item1 == watchingPixel.Item1 - 1) != null) count++;
-            else if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 - 1) != null) count++;
-            else if (r.PixelList.Find(p => p.Item1 == watchingPixel.Item1 + 1) != null) count++;
-            else if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 + 1) != null) count++;
+            if (r.PixelList.Find(p => p.Item1 == watchingPixel.Item1 - 1 && p.Item2 == watchingPixel.Item2) != null) count++;
+            if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 - 1 && p.Item1 == watchingPixel.Item1) != null) count++;
+            if (r.PixelList.Find(p => p.Item1 == watchingPixel.Item1 + 1 && p.Item2 == watchingPixel.Item2) != null) count++;
+            if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 + 1 && p.Item1 == watchingPixel.Item1) != null) count++;
 
             return count;
         }

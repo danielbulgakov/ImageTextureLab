@@ -19,6 +19,46 @@ namespace ImageTextureLab.OwnSolution
             _regionCounter = 0;
         }
 
+        public void Metadata ()
+        {
+            MetadataPerimeter();
+            MetadataSquare();
+            MetadataMomentum();
+        }
+
+        public void MetadataPerimeter()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Metadata Perimter");
+            foreach ( var r in _regionList)
+            {
+                Console.WriteLine("Reg" + r.Id + " P = " + RegionParams.RegionPerimeter(r));
+            }
+            Console.WriteLine();
+        }
+
+        public void MetadataSquare()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Metadata Square");
+            foreach (var r in _regionList)
+            {
+                Console.WriteLine("Reg" + r.Id + " S = " + RegionParams.RegionSquare(r));
+            }
+            Console.WriteLine();
+        }
+
+        public void MetadataMomentum()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Metadata Momentum");
+            foreach (var r in _regionList)
+            {
+                Console.WriteLine("Reg" + r.Id + " M = " + RegionParams.RegionDiscreteMomentum(r, 2,2,_sourceImage));
+            }
+            Console.WriteLine();
+        }
+
         public void AddNewRegion(int x, int y)
         {
             int id = ++_regionCounter;
@@ -116,14 +156,15 @@ namespace ImageTextureLab.OwnSolution
 
         private Bitmap ComputeImage(Bitmap image, RegionMap map)
         {
-            map.Print();
+            //map.Print();
             for (int y = 0; y < image.Height; y++)
                 for (int x = 0; x < image.Width; x++)
                 {
                     image.SetPixel(x, y, map.GetColor(x,y));
 
                 }
-            map.Print();
+            //map.Print();
+            map.Metadata();
             
             return image;
         }

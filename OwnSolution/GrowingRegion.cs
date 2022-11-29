@@ -25,14 +25,14 @@ namespace ImageTextureLab.OwnSolution
             Region reg = new Region(id);
 
             _imageMask[x, y] = id;
-            reg.AddPixel(x, y);
+            reg.AddPixel(x, y, _sourceImage);
             _regionList.Add(reg);
         }
 
         public void AddToRegion(int x, int y, Region reg)
         {
             _imageMask[x, y] = reg.Id;
-            reg.AddPixel(x, y);
+            reg.AddPixel(x, y, _sourceImage);
         }
 
         public Region GetRegion(int x, int y)
@@ -41,13 +41,13 @@ namespace ImageTextureLab.OwnSolution
             return _regionList.Find(r => r.Id == id);
         }
 
-        public int GetIntensity(int x, int y)
+        public float GetIntensity(int x, int y)
         {
             int id = _imageMask[x, y];
             var reg = _regionList.Find(r => r.Id == id);
             
 
-            return reg.Intensity(_sourceImage);
+            return reg.Intensity();
 
         }
 
@@ -88,18 +88,7 @@ namespace ImageTextureLab.OwnSolution
                 Console.WriteLine();
             }
             Console.WriteLine(@"}}}}");
-            //Console.WriteLine();
-            //Console.Write("^^^^");
-            //for (int i = 0; i < sourceImage.Height; i++)
-            //{
 
-            //    for (int j = 0; j < sourceImage.Width; j++)
-            //    {
-            //        Console.Write(GetIntensity(j, i) + ", ");
-            //    }
-            //    Console.WriteLine();
-            //}
-            //Console.WriteLine("^^^^");
 
         }
 
@@ -122,8 +111,8 @@ namespace ImageTextureLab.OwnSolution
             for (int y = 0; y < image.Height; y++)
                 for (int x = 0; x < image.Width; x++)
                 {
-                    image.SetPixel(x, y, Color.FromArgb(map.GetIntensity(x, y),
-                                   map.GetIntensity(x, y), map.GetIntensity(x, y)));
+                    image.SetPixel(x, y,Color.FromArgb((int)map.GetIntensity(x, y),
+                                   (int)map.GetIntensity(x, y), (int)map.GetIntensity(x, y)));
 
                 }
             map.Print();
@@ -142,8 +131,8 @@ namespace ImageTextureLab.OwnSolution
                     int difX = 0, difY = 0, difXy = 0;
                     int ofX = x - 1, ofY = y - 1; 
 
-                    if (x > 0) difX = Math.Abs(pixI - map.GetIntensity(ofX, y));
-                    if (y > 0) difY = Math.Abs(pixI - map.GetIntensity(x, ofY));
+                    if (x > 0) difX = Math.Abs(pixI - (int)map.GetIntensity(ofX, y));
+                    if (y > 0) difY = Math.Abs(pixI - (int)map.GetIntensity(x, ofY));
                     if (x > 0 && y > 0) difXy = Math.Abs(difX - difY);
 
                     if (x == 0 && y == 0)

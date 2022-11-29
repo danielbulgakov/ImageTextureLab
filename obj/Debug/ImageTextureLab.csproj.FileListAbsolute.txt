@@ -19,3 +19,14 @@ D:/Study/2022/ImageTextureLab/obj/Debug/ImageTextureLab.pdb
 /home/daniel/Study/ImageTextureLab/bin/Debug/ImageTextureLab.exe.config
 /home/daniel/Study/ImageTextureLab/bin/Debug/ImageTextureLab.exe
 /home/daniel/Study/ImageTextureLab/bin/Debug/ImageTextureLab.pdb
+C:\Study\ImageTextureLab\bin\Debug\ImageTextureLab.exe.config
+C:\Study\ImageTextureLab\bin\Debug\ImageTextureLab.exe
+C:\Study\ImageTextureLab\bin\Debug\ImageTextureLab.pdb
+C:\Study\ImageTextureLab\obj\Debug\ImageTextureLab.csproj.AssemblyReference.cache
+C:\Study\ImageTextureLab\obj\Debug\ImageTextureLab.csproj.SuggestedBindingRedirects.cache
+C:\Study\ImageTextureLab\obj\Debug\ImageTextureLab.Form1.resources
+C:\Study\ImageTextureLab\obj\Debug\ImageTextureLab.Properties.Resources.resources
+C:\Study\ImageTextureLab\obj\Debug\ImageTextureLab.csproj.GenerateResource.cache
+C:\Study\ImageTextureLab\obj\Debug\ImageTextureLab.csproj.CoreCompileInputs.cache
+C:\Study\ImageTextureLab\obj\Debug\ImageTextureLab.exe
+C:\Study\ImageTextureLab\obj\Debug\ImageTextureLab.pdb

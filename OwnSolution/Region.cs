@@ -8,6 +8,7 @@ namespace ImageTextureLab.OwnSolution
     {
         public int Id { get; set; }
         public List<Tuple<int, int>> PixelList { get; private set; }
+        public float IntensityVal = 1f;
 
         public Region(int id)
         {
@@ -17,21 +18,28 @@ namespace ImageTextureLab.OwnSolution
 
         public int GetSize() { return PixelList.Count; }
 
-        public void AddRegion(Region reg) { PixelList.AddRange(reg.PixelList); }
-
-        public void AddPixel(int x, int y)
+        public void AddRegion(Region reg) 
         {
-            PixelList.Add(new Tuple<int, int>(x, y));
+            this.IntensityVal = (this.IntensityVal * PixelList.Count + reg.IntensityVal * reg.PixelList.Count ) /
+                                (reg.PixelList.Count + PixelList.Count);      
+            PixelList.AddRange(reg.PixelList);
         }
 
-        public int Intensity(Bitmap image)
+        public void AddPixel(int x, int y, Bitmap image)
         {
-            int sum = 0;
-            foreach (var p in PixelList) 
-            { 
-                sum += Tools.ImageTools.GetBrightness(image.GetPixel(p.Item1, p.Item2)); 
-            }
-            return sum / PixelList.Count;
+            PixelList.Add(new Tuple<int, int>(x, y));
+            addIntensity(x, y, image);
+        }
+
+        public float Intensity()
+        {
+            return IntensityVal;
+        }
+
+        private void addIntensity(int x, int y, Bitmap image)
+        {
+            this.IntensityVal = (this.IntensityVal * (PixelList.Count - 1) +
+                Tools.ImageTools.GetBrightness(image.GetPixel(x, y))) / PixelList.Count;
         }
     }
 

@@ -1,11 +1,6 @@
-D:\Study\2022\ImageTextureLab\bin\Release\ImageTextureLab.exe.config
-D:\Study\2022\ImageTextureLab\bin\Release\ImageTextureLab.exe
-D:\Study\2022\ImageTextureLab\bin\Release\ImageTextureLab.pdb
-D:\Study\2022\ImageTextureLab\obj\Release\ImageTextureLab.csproj.AssemblyReference.cache
-D:\Study\2022\ImageTextureLab\obj\Release\ImageTextureLab.csproj.SuggestedBindingRedirects.cache
-D:\Study\2022\ImageTextureLab\obj\Release\ImageTextureLab.Form1.resources
-D:\Study\2022\ImageTextureLab\obj\Release\ImageTextureLab.Properties.Resources.resources
-D:\Study\2022\ImageTextureLab\obj\Release\ImageTextureLab.csproj.GenerateResource.cache
-D:\Study\2022\ImageTextureLab\obj\Release\ImageTextureLab.csproj.CoreCompileInputs.cache
-D:\Study\2022\ImageTextureLab\obj\Release\ImageTextureLab.exe
-D:\Study\2022\ImageTextureLab\obj\Release\ImageTextureLab.pdb
+C:\Study\ImageTextureLab\obj\Release\ImageTextureLab.csproj.AssemblyReference.cache
+C:\Study\ImageTextureLab\obj\Release\ImageTextureLab.csproj.SuggestedBindingRedirects.cache
+C:\Study\ImageTextureLab\obj\Release\ImageTextureLab.Form1.resources
+C:\Study\ImageTextureLab\obj\Release\ImageTextureLab.Properties.Resources.resources
+C:\Study\ImageTextureLab\obj\Release\ImageTextureLab.csproj.GenerateResource.cache
+C:\Study\ImageTextureLab\obj\Release\ImageTextureLab.csproj.CoreCompileInputs.cache

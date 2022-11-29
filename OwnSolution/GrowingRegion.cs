@@ -51,6 +51,15 @@ namespace ImageTextureLab.OwnSolution
 
         }
 
+        public Color GetColor(int x, int y)
+        {
+            int id = _imageMask[x, y];
+            var reg = _regionList.Find(r => r.Id == id);
+
+
+            return reg.color;
+        }
+
         public void MergeRegions(Region reg1, Region reg2)
         {
             if (reg1 == reg2) return;
@@ -111,8 +120,7 @@ namespace ImageTextureLab.OwnSolution
             for (int y = 0; y < image.Height; y++)
                 for (int x = 0; x < image.Width; x++)
                 {
-                    image.SetPixel(x, y,Color.FromArgb((int)map.GetIntensity(x, y),
-                                   (int)map.GetIntensity(x, y), (int)map.GetIntensity(x, y)));
+                    image.SetPixel(x, y, map.GetColor(x,y));
 
                 }
             map.Print();

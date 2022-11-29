@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Reflection;
 
 namespace ImageTextureLab.OwnSolution
 {
@@ -9,13 +10,34 @@ namespace ImageTextureLab.OwnSolution
         public int Id { get; set; }
         public List<Tuple<int, int>> PixelList { get; private set; }
         public float IntensityVal = 1f;
-
+        public Color color;
+        private List<Color> allColors =  new List<Color>();
+        private static Random rnd = new Random();
+        
         public Region(int id)
         {
+            GetAllColors();
+            int num = rnd.Next(0, allColors.Count);
             this.Id = id;
             PixelList = new List<Tuple<int, int>>();
+            color = allColors[num];
+            
         }
 
+        private List<Color> GetAllColors()
+        {
+      
+
+            foreach (PropertyInfo property in typeof(Color).GetProperties())
+            {
+                if (property.PropertyType == typeof(Color))
+                {
+                    allColors.Add((Color)property.GetValue(null));
+                }
+            }
+
+            return allColors;
+        }
         public int GetSize() { return PixelList.Count; }
 
         public void AddRegion(Region reg) 

@@ -33,10 +33,9 @@
             this.gLSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.лавсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.разрастаниеРегионовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-<<<<<<< HEAD
-=======
-            this.хкиРегионовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
->>>>>>> main
+
+            
+
             this.отменаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
@@ -87,16 +86,14 @@
             // 
             // отменаToolStripMenuItem
             // 
-<<<<<<< HEAD
+
             this.отменаToolStripMenuItem.Name = "отменаToolStripMenuItem";
             this.отменаToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.отменаToolStripMenuItem.Text = "Отмена";
             this.отменаToolStripMenuItem.Click += new System.EventHandler(this.отменаToolStripMenuItem_Click);
-=======
-            this.хкиРегионовToolStripMenuItem.Name = "хкиРегионовToolStripMenuItem";
-            this.хкиРегионовToolStripMenuItem.Size = new System.Drawing.Size(125, 24);
-            this.хкиРегионовToolStripMenuItem.Text = "Х-ки регионов";
->>>>>>> main
+
+
+
             // 
             // отменаToolStripMenuItem
             // 

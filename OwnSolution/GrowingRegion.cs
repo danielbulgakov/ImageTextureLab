@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace ImageTextureLab.OwnSolution
 {
@@ -21,42 +22,56 @@ namespace ImageTextureLab.OwnSolution
 
         public void Metadata ()
         {
-            MetadataPerimeter();
-            MetadataSquare();
-            MetadataMomentum();
+            Console.WriteLine(MetadataPerimeter());
+            Console.WriteLine(MetadataSquare());
+            Console.WriteLine(MetadataMomentum());
+            MessageBox.Show(PrintReg() + MetadataPerimeter() + MetadataSquare() + MetadataMomentum());
         }
 
-        public void MetadataPerimeter()
+        public string PrintReg()
         {
-            Console.WriteLine();
-            Console.WriteLine("Metadata Perimter");
+            string RetMes = "";
+            RetMes += "Regions\n";
+            foreach (var r in _regionList)
+            {
+                RetMes += "Reg" + r.Id + " Point " + r.PixelList[0].ToString() + "\n";
+            }
+            return RetMes;
+        }
+
+        public string MetadataPerimeter()
+        {
+            string RetMes = "";
+            RetMes += "Metadata Perimter\n";
             foreach ( var r in _regionList)
             {
-                Console.WriteLine("Reg" + r.Id + " P = " + RegionParams.RegionPerimeter(r));
+                RetMes += "Reg" + r.Id + " P = " + RegionParams.RegionPerimeter(r) + "\n";
             }
-            Console.WriteLine();
+            return RetMes;
         }
 
-        public void MetadataSquare()
+        public string MetadataSquare()
         {
-            Console.WriteLine();
-            Console.WriteLine("Metadata Square");
+            string RetMes = "";
+            RetMes += "Metadata Square\n";
             foreach (var r in _regionList)
             {
-                Console.WriteLine("Reg" + r.Id + " S = " + RegionParams.RegionSquare(r));
+                RetMes += "Reg" + r.Id + " S = " + RegionParams.RegionSquare(r) + "\n";
             }
-            Console.WriteLine();
+            return RetMes;
         }
 
-        public void MetadataMomentum()
+        public string MetadataMomentum()
         {
-            Console.WriteLine();
-            Console.WriteLine("Metadata Momentum");
+            string RetMes = "";
+            int i = 0, j = 2;
+            RetMes += "Metadata Momentum\n";
+            RetMes += "i = " + i + " j = " + j + "\n";
             foreach (var r in _regionList)
             {
-                Console.WriteLine("Reg" + r.Id + " M = " + RegionParams.RegionDiscreteMomentum(r, 2,2,_sourceImage));
+                RetMes += "Reg" + r.Id + " M = " + RegionParams.RegionDiscreteMomentum(r, i, j, _sourceImage) + "\n";
             }
-            Console.WriteLine();
+            return RetMes;
         }
 
         public void AddNewRegion(int x, int y)
@@ -149,6 +164,7 @@ namespace ImageTextureLab.OwnSolution
 
         public Bitmap Compute(Bitmap image, int threshold = 8)
         {
+            threshold = 100;
             Bitmap resImage = new Bitmap(image.Width, image.Height);
             RegionMap regionMap = ComputeMask(image, threshold);
             return ComputeImage(resImage, regionMap);
@@ -157,6 +173,7 @@ namespace ImageTextureLab.OwnSolution
         private Bitmap ComputeImage(Bitmap image, RegionMap map)
         {
             //map.Print();
+            map.Metadata();
             for (int y = 0; y < image.Height; y++)
                 for (int x = 0; x < image.Width; x++)
                 {
@@ -164,7 +181,7 @@ namespace ImageTextureLab.OwnSolution
 
                 }
             //map.Print();
-            map.Metadata();
+            
             
             return image;
         }

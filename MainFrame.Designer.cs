@@ -33,9 +33,8 @@
             this.gLSMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.лавсToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.разрастаниеРегионовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.хкиРегионовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.отменаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +46,6 @@
             this.gLSMToolStripMenuItem,
             this.лавсToolStripMenuItem,
             this.разрастаниеРегионовToolStripMenuItem,
-            this.хкиРегионовToolStripMenuItem,
             this.отменаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -81,11 +79,12 @@
             this.разрастаниеРегионовToolStripMenuItem.Text = "Разрастание регионов";
             this.разрастаниеРегионовToolStripMenuItem.Click += new System.EventHandler(this.разрастаниеРегионовToolStripMenuItem_Click);
             // 
-            // хкиРегионовToolStripMenuItem
+            // отменаToolStripMenuItem
             // 
-            this.хкиРегионовToolStripMenuItem.Name = "хкиРегионовToolStripMenuItem";
-            this.хкиРегионовToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
-            this.хкиРегионовToolStripMenuItem.Text = "Х-ки регионов";
+            this.отменаToolStripMenuItem.Name = "отменаToolStripMenuItem";
+            this.отменаToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.отменаToolStripMenuItem.Text = "Отмена";
+            this.отменаToolStripMenuItem.Click += new System.EventHandler(this.отменаToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -99,13 +98,6 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // отменаToolStripMenuItem
-            // 
-            this.отменаToolStripMenuItem.Name = "отменаToolStripMenuItem";
-            this.отменаToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
-            this.отменаToolStripMenuItem.Text = "Отмена";
-            this.отменаToolStripMenuItem.Click += new System.EventHandler(this.отменаToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -133,7 +125,6 @@
         private System.Windows.Forms.ToolStripMenuItem gLSMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem лавсToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem разрастаниеРегионовToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem хкиРегионовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отменаToolStripMenuItem;
     }
 }

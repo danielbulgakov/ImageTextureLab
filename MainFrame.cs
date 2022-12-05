@@ -67,5 +67,10 @@ namespace ImageTextureLab
             if (ImageIsNull()) return;
             this.pictureBox1.Image = prevImage;
         }
+
+        private void хкиРегионовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

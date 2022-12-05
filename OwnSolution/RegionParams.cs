@@ -8,22 +8,18 @@ namespace ImageTextureLab.OwnSolution
     
     public class RegionParams
     {
-        // not tested yet.
         public static int RegionSquare(Region r)
         {
             return r.PixelList.Count;
         }
 
-        // not tested yet.
-        // является медленной версией т.к. постоянное обращается для поиска в лист
-        // для ускоренитя можно создать матрицу по точкам региона.
         public static int RegionPerimeter(Region r)
         {
             int perimeter = 0;
 
             for (int i = 0; i < r.PixelList.Count; i++)
             {
-                perimeter += pixelneighbourCount(r, i) < 4 ? 1 : 0 ;
+                perimeter += (4 - pixelneighbourCount(r, i));
             }
 
             return perimeter;
@@ -34,10 +30,10 @@ namespace ImageTextureLab.OwnSolution
 
             var watchingPixel = r.PixelList[regListInd];
 
-            if (r.PixelList.Find(p => p.Item1 == watchingPixel.Item1 - 1 && p.Item2 == watchingPixel.Item2) != null) count++;
-            if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 - 1 && p.Item1 == watchingPixel.Item1) != null) count++;
-            if (r.PixelList.Find(p => p.Item1 == watchingPixel.Item1 + 1 && p.Item2 == watchingPixel.Item2) != null) count++;
-            if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 + 1 && p.Item1 == watchingPixel.Item1) != null) count++;
+            if (r.PixelList.Find(p => p.Item1 == watchingPixel.Item1 - 1) != null) count++;
+            else if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 - 1) != null) count++;
+            else if (r.PixelList.Find(p => p.Item1 == watchingPixel.Item1 + 1) != null) count++;
+            else if (r.PixelList.Find(p => p.Item2 == watchingPixel.Item2 + 1) != null) count++;
 
             return count;
         }
@@ -48,9 +44,12 @@ namespace ImageTextureLab.OwnSolution
 
             foreach (var pix in r.PixelList)
             {
+                int k = 0;
+                int br = Tools.ImageTools.GetBrightness(image.GetPixel(pix.Item1, pix.Item2));
+                if (br < 10) k = 1;
                 momentum += (int)Math.Pow(pix.Item1, x) *
                             (int)Math.Pow(pix.Item2, y) *
-                            Tools.ImageTools.GetBrightness(image.GetPixel(x ,y));
+                            k;
 
             }
 

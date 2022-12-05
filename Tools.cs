@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ImageTextureLab
 {
-    internal class Tools
+    internal class Toolss
     {
         static public int Clamp(int a, int l, int r)
         {

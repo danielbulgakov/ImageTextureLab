@@ -32,7 +32,7 @@ namespace ImageTextureLab
         }
         static public int[,] GhorizontalGLCM(int[,] Intensivities)
         {
-            int[,] result = Tools.ZerosMatrix(256);            
+            int[,] result = Toolss.ZerosMatrix(256);            
 
             for (int i = 0;i< Intensivities.GetLength(0); i++)
                 for (int j = 0;j < Intensivities.GetLength(1)-1; j++)
@@ -45,7 +45,7 @@ namespace ImageTextureLab
 
         static public int[,] VerticalGLCM(int[,] Intensivities)
         {
-            int[,] result = Tools.ZerosMatrix(256);
+            int[,] result = Toolss.ZerosMatrix(256);
 
             for (int i = 0; i < Intensivities.GetLength(0)-1; i++)
                 for (int j = 0; j < Intensivities.GetLength(1); j++)
@@ -58,7 +58,7 @@ namespace ImageTextureLab
 
         static public int[,] DiagonalGLCM(int[,] Intensivities)
         {
-            int[,] result = Tools.ZerosMatrix(256);
+            int[,] result = Toolss.ZerosMatrix(256);
 
             for (int i = 0; i < Intensivities.GetLength(0) - 1; i++)
                 for (int j = 0; j < Intensivities.GetLength(1) - 1; j++)

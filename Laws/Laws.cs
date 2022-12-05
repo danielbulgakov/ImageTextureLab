@@ -288,6 +288,7 @@ namespace ImageTextureLab
             this.Controls.Add(this.EE);
             this.Controls.Add(this.LE);
             this.Name = "Laws";
+            this.Load += new System.EventHandler(this.Laws_Load);
             ((System.ComponentModel.ISupportInitialize)(this.LE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ES)).EndInit();
@@ -298,6 +299,11 @@ namespace ImageTextureLab
             ((System.ComponentModel.ISupportInitialize)(this.SR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SS)).EndInit();
             this.ResumeLayout(false);
+
+        }
+
+        private void Laws_Load(object sender, EventArgs e)
+        {
 
         }
     }

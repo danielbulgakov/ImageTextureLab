@@ -1,5 +1,4 @@
 ﻿using ImageTextureLab.OwnSolution;
-using ImageTextureLab.OwnSolution.GrowingRegion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

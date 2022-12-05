@@ -21,3 +21,4 @@ C:\Users\vovab\Desktop\ImageTextureLab\obj\Release\ImageTextureLab.csproj.Genera
 C:\Users\vovab\Desktop\ImageTextureLab\obj\Release\ImageTextureLab.csproj.CoreCompileInputs.cache
 C:\Users\vovab\Desktop\ImageTextureLab\obj\Release\ImageTextureLab.exe
 C:\Users\vovab\Desktop\ImageTextureLab\obj\Release\ImageTextureLab.pdb
+D:\Study\2022\ImageTextureLab\obj\Release\ImageTextureLab.Laws.resources

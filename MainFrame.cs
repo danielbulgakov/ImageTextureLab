@@ -69,6 +69,11 @@ namespace ImageTextureLab
             this.pictureBox1.Image = prevImage;
         }
 
+<<<<<<< HEAD
+        private void хкиРегионовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+=======
         private void лавсToolStripMenuItem_Click(object sender, EventArgs e)
         {
             prevImage = new Bitmap(pictureBox1.Image);
@@ -78,6 +83,7 @@ namespace ImageTextureLab
             //var g = new GrowingRegion();
             //this.pictureBox1.Image = g.Compute((Bitmap)pictureBox1.Image);
             //Cursor.Current = Cursors.Default;
+>>>>>>> main
         }
     }
 }

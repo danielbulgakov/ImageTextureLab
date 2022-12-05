@@ -1,0 +1,11 @@
+D:\Projects\ImageTextureLab\bin\Release\ImageTextureLab.exe.config
+D:\Projects\ImageTextureLab\bin\Release\ImageTextureLab.exe
+D:\Projects\ImageTextureLab\bin\Release\ImageTextureLab.pdb
+D:\Projects\ImageTextureLab\obj\Release\ImageTextureLab.csproj.AssemblyReference.cache
+D:\Projects\ImageTextureLab\obj\Release\ImageTextureLab.csproj.SuggestedBindingRedirects.cache
+D:\Projects\ImageTextureLab\obj\Release\ImageTextureLab.Form1.resources
+D:\Projects\ImageTextureLab\obj\Release\ImageTextureLab.Properties.Resources.resources
+D:\Projects\ImageTextureLab\obj\Release\ImageTextureLab.csproj.GenerateResource.cache
+D:\Projects\ImageTextureLab\obj\Release\ImageTextureLab.csproj.CoreCompileInputs.cache
+D:\Projects\ImageTextureLab\obj\Release\ImageTextureLab.exe
+D:\Projects\ImageTextureLab\obj\Release\ImageTextureLab.pdb

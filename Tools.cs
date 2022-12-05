@@ -29,13 +29,13 @@ namespace ImageTextureLab
                     imageC.SetPixel(i, j, Color.FromArgb(x,x,x));   // To grey
                 }
 
-            for (int i = 0; i < Image.Width; i++)
-                for (int j = 0; j < Image.Height; j++)
-                {
-                    int intensivity = imageC.GetPixel(i, j).R;
-                    intensivity = (int) ((intensivity - min) * 255 / (max - min));
-                    imageC.SetPixel(i, j, Color.FromArgb(intensivity, intensivity, intensivity)); //linear stretch
-                }
+            //for (int i = 0; i < Image.Width; i++)
+            //    for (int j = 0; j < Image.Height; j++)
+            //    {
+            //        int intensivity = imageC.GetPixel(i, j).R;
+            //        intensivity = (int) ((intensivity - min) * 255 / (max - min));
+            //        imageC.SetPixel(i, j, Color.FromArgb(intensivity, intensivity, intensivity)); //linear stretch
+            //    }
 
             return imageC;
         }
@@ -50,14 +50,43 @@ namespace ImageTextureLab
             return Intensivities;
         }
 
-        static public int[,] ZerosMatrix(int a)
+        static public int[,] ZerosMatrix(uint a)
         {
             if (a < 1) return null;
-            int[,] Zeros = new int[a, a];
-            for (int i = 0; i < 255; i++)
-                for (int j = 0; j < 255; j++)
+            int[,] Zeros = new int[a , a ];
+            for (int i = 0; i < a; i++)
+                for (int j = 0; j < a; j++)
                     Zeros[i, j] = 0;
             return Zeros;
+
+        }
+
+        static public int[,] MatrixPart(int[,] image, uint radius, uint x, uint y)
+        {
+            int[,] result = new int[Math.Min(x, radius) + 1 + Math.Min(radius, image.GetLength(0) - x-1), Math.Min(y, radius) + 1 + Math.Min(radius, image.GetLength(1) - y-1)];
+
+            int i1 = 0, i2 = 0;
+
+            for (int i = -(int)radius; i <= radius; i++)
+            {
+                
+                for (int j = -(int)radius; j <= radius; j++)
+                {
+                    if (x + i >= 0 && x + i <= image.GetLength(0)-1 && y + j >= 0 && y + j <= image.GetLength(1) - 1)
+                    {
+                        result[i1, i2] = image[x + i, y + j];
+                        i2++;
+                    }
+                }
+
+                if (i2 != 0)
+                {
+                    i1++;
+                    i2 = 0;
+                }
+            }
+
+            return result;
 
         }
 

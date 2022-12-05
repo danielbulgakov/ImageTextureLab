@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ImageTextureLab
 {
-    internal class GLCM // Count of pair intensivity in int. For alghorithms needs double.
+    static class GLCM // Count of pair intensivity in int. For alghorithms needs double.
     {
         public enum  GLCMType
         {
@@ -16,7 +16,7 @@ namespace ImageTextureLab
             Diagonal 
 
         }
-        public int CountPair(int weight, int height,GLCMType type)
+        static public int CountPair(int weight, int height,GLCMType type)
         {
             switch (type){
 
@@ -30,9 +30,9 @@ namespace ImageTextureLab
                     return -1;
             }
         }
-        public int[,] GhorizontalGLCM(int[,] Intensivities)
+        static public int[,] GhorizontalGLCM(int[,] Intensivities)
         {
-            int[,] result = Tools.ZerosMatrix(255);            
+            int[,] result = Tools.ZerosMatrix(256);            
 
             for (int i = 0;i< Intensivities.GetLength(0); i++)
                 for (int j = 0;j < Intensivities.GetLength(1)-1; j++)
@@ -43,9 +43,9 @@ namespace ImageTextureLab
             return result;
         }
 
-        public int[,] VerticalGLCM(int[,] Intensivities)
+        static public int[,] VerticalGLCM(int[,] Intensivities)
         {
-            int[,] result = Tools.ZerosMatrix(255);
+            int[,] result = Tools.ZerosMatrix(256);
 
             for (int i = 0; i < Intensivities.GetLength(0)-1; i++)
                 for (int j = 0; j < Intensivities.GetLength(1); j++)
@@ -56,9 +56,9 @@ namespace ImageTextureLab
             return result;
         }
 
-        public int[,] DiagonalGLCM(int[,] Intensivities)
+        static public int[,] DiagonalGLCM(int[,] Intensivities)
         {
-            int[,] result = Tools.ZerosMatrix(255);
+            int[,] result = Tools.ZerosMatrix(256);
 
             for (int i = 0; i < Intensivities.GetLength(0) - 1; i++)
                 for (int j = 0; j < Intensivities.GetLength(1) - 1; j++)
@@ -69,7 +69,7 @@ namespace ImageTextureLab
             return result;
         }
 
-        public float Contrast(int[,] glcm, int count_pair)
+        static public float Contrast(int[,] glcm, int count_pair)
         {
             float result = 0.0f;
 
@@ -80,7 +80,7 @@ namespace ImageTextureLab
             return result/ count_pair;
         }
 
-        public float ASM(int [,] glcm, int count_pair)
+        static public float ASM(int [,] glcm, int count_pair)
         {
             float result = 0.0f;
 
@@ -90,7 +90,7 @@ namespace ImageTextureLab
             return result / (count_pair* count_pair);
         }
 
-        public Tuple<float,float> Mean(int[,] glcm, int count_pair)
+        static public Tuple<float,float> Mean(int[,] glcm, int count_pair)
         {
             float resultI = 0.0f;
             float resultJ = 0.0f;
@@ -105,7 +105,7 @@ namespace ImageTextureLab
         }
 
         
-        public Tuple<float, float> Vaiance2(int[,] glcm, int count_pair, Tuple<float, float> means = null)
+        static public Tuple<float, float> Variance2(int[,] glcm, int count_pair, Tuple<float, float> means = null)
         {
             float resultI = 0.0f;
             float resultJ = 0.0f;
@@ -121,21 +121,19 @@ namespace ImageTextureLab
             return Tuple.Create(resultI / count_pair, resultJ / count_pair);
         }
 
-        public float Correlation(int[,] glcm, int count_pair)
+        static public float Correlation(int[,] glcm, int count_pair)
         {
             float result = 0.0f;
             Tuple<float, float> means = Mean(glcm, count_pair);
-            Tuple<float, float> vai = Vaiance2(glcm, count_pair,means);
+            Tuple<float, float> vai = Variance2(glcm, count_pair,means);
 
             for (int i = 0; i < glcm.GetLength(0); i++)
                 for (int j = 0; j < glcm.GetLength(1); j++)
-                    result +=(float)( glcm[i, j] * (i -means.Item1) * (j - means.Item2) / Math.Sqrt(vai.Item1 * vai.Item2) );
+                    result +=(float)( glcm[i, j] * (i -means.Item1) * (j - means.Item2) / (Math.Sqrt(vai.Item1 * vai.Item2) + 0.00001) );
 
             return result;
 
         }
-
-
 
     }
 }

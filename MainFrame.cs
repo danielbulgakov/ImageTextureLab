@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ImageTextureLab;
 
 namespace ImageTextureLab
 {
@@ -67,6 +68,17 @@ namespace ImageTextureLab
         {
             if (ImageIsNull()) return;
             this.pictureBox1.Image = prevImage;
+        }
+
+        private void лавсToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            prevImage = new Bitmap(pictureBox1.Image);
+            Laws frame = new Laws(prevImage);
+            frame.Show();
+            //Cursor.Current = Cursors.WaitCursor;
+            //var g = new GrowingRegion();
+            //this.pictureBox1.Image = g.Compute((Bitmap)pictureBox1.Image);
+            //Cursor.Current = Cursors.Default;
         }
     }
 }

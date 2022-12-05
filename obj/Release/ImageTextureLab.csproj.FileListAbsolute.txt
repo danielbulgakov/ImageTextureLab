@@ -1,6 +1,0 @@
-C:\Study\ImageTextureLab\obj\Release\ImageTextureLab.csproj.AssemblyReference.cache
-C:\Study\ImageTextureLab\obj\Release\ImageTextureLab.csproj.SuggestedBindingRedirects.cache
-C:\Study\ImageTextureLab\obj\Release\ImageTextureLab.Form1.resources
-C:\Study\ImageTextureLab\obj\Release\ImageTextureLab.Properties.Resources.resources
-C:\Study\ImageTextureLab\obj\Release\ImageTextureLab.csproj.GenerateResource.cache
-C:\Study\ImageTextureLab\obj\Release\ImageTextureLab.csproj.CoreCompileInputs.cache
